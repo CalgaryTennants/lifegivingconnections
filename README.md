@@ -7,6 +7,9 @@ This project aims to provide accessible Biblical resources through a static webs
 ## Website
 You can access the website at: https://CalgaryTennants.github.io/resources/
 
+## Available Resources
+- `files/list.csv`: A comprehensive list of resources
+
 ## Development
 This site is built using GitHub Pages.
 
