@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblical Resources</title>
+    <title>Search Results - Biblical Resources</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,9 +12,10 @@
             <div class="header-content">
                 <div class="header-left">
                     <h1>Biblical Resources</h1>
-                    <p>Welcome to our collection of Biblical resources. This site is currently under development.</p>
+                    <p>Search Results</p>
                 </div>
                 <div class="header-search">
+                    <button id="backButton" class="back-button">← Back</button>
                     <input type="text" id="searchInput" placeholder="Search resources...">
                     <button id="searchButton">Search</button>
                 </div>
@@ -22,15 +23,11 @@
         </header>
 
         <div class="grid-container">
-            <section class="content updates-section">
-                <h2>Updates</h2>
-                <p>Check back regularly for new additions to our resource collection.</p>
-            </section>
-            
-            <section class="content featured-section">
-                <h2>Featured Content</h2>
-                <p>This section will showcase highlighted resources and materials.</p>
-            </section>
+            <div class="content search-results-container">
+                <h2>Search Results</h2>
+                <div id="searchResultsCount"></div>
+                <div id="searchResults"></div>
+            </div>
         </div>
 
         <footer class="footer">
