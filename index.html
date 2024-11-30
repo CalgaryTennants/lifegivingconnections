@@ -4,136 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblical Resources</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            position: relative;
-            min-height: 100vh;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/resources.png');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-            z-index: -1;
-        }
-        .page-wrapper {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .grid-container {
-            width: 95%;
-            margin: 10px auto;
-            display: grid;
-            grid-template-rows: auto 1fr;
-            grid-template-columns: 1fr 4fr;
-            gap: 20px;
-            flex: 1;
-        }
-        .content {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .header, .footer {
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-            position: relative;
-            left: 50%;
-            right: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
-        }
-        .header-content, .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 10px 20px;
-            margin-bottom: 0;
-        }
-        .header h1 {
-            margin: 0 0 5px 0;
-            font-size: 1.8em;
-        }
-        .header p {
-            margin: 0;
-            font-size: 0.9em;
-        }
-        .updates-section {
-            grid-column: 1 / 2;
-        }
-        .featured-section {
-            grid-column: 2 / 3;
-        }
-        .footer {
-            grid-column: 1 / -1;
-            margin-top: 10px;
-            max-height: 10vh;
-            overflow-y: auto;
-            padding: 10px 20px;
-        }
-        .footer h2 {
-            margin: 0 0 5px 0;
-            font-size: 1.2em;
-        }
-        .footer ul {
-            margin: 5px 0;
-        }
-        .footer p {
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
-        h2 {
-            color: #444;
-            margin-bottom: 0.8rem;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #003366;
-            text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .updates-section,
-            .featured-section {
-                grid-column: 1 / -1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="page-wrapper">
@@ -158,7 +29,7 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <h2>Al available resources as a downloadable file</h2>
+                <h2>All available resources as a downloadable file</h2>
                 <ul>
                     <li><a href="files/list.csv">Resource List (CSV)</a></li>
                 </ul>
