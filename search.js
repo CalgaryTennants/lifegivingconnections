@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const locationIndex = headers.indexOf('Location');
         const summaryIndex = headers.indexOf('Summary');
         const commentIndex = headers.indexOf('Comment');
+        const imageIndex = headers.indexOf('Image');
         
         for (let i = 1; i < lines.length; i++) {
             const line = lines[i].trim();
@@ -78,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     media: values[mediaIndex],
                     location: values[locationIndex],
                     summary: values[summaryIndex],
-                    comment: values[commentIndex]
+                    comment: values[commentIndex],
+                    image: values[imageIndex]
                 });
             }
         }
@@ -100,14 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Title and stars in a header row
                 const headerDiv = document.createElement('div');
                 headerDiv.className = 'result-header';
-                
+
+                // Create title row for title and stars
+                const titleRow = document.createElement('div');
+                titleRow.className = 'title-row';
+
                 // Add title
                 const titleSpan = document.createElement('span');
                 titleSpan.className = 'title';
                 titleSpan.textContent = result.title;
-                headerDiv.appendChild(titleSpan);
-                
-                // Add stars
+                titleRow.appendChild(titleSpan);
+
+                // Add stars to title row
                 const starsContainer = document.createElement('span');
                 starsContainer.className = 'stars';
                 
@@ -127,7 +133,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     starsContainer.appendChild(star);
                 }
                 
-                headerDiv.appendChild(starsContainer);
+                titleRow.appendChild(starsContainer);
+
+                // Add title row to header
+                headerDiv.appendChild(titleRow);
+
+                // Add image if it exists
+                if (result.image) {
+                    const img = new Image();
+                    img.className = 'result-image';
+                    img.alt = result.title;
+                    img.src = `images/${result.image}`;
+                    headerDiv.appendChild(img);
+                }
+
                 div.appendChild(headerDiv);
                 
                 // Add details section

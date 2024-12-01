@@ -281,17 +281,32 @@ a:hover {
 }
 
 .search-result-item {
+    display: grid;
+    grid-template-columns: auto 1fr;  /* Left section and details section */
+    gap: 20px;
     padding: 15px;
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
-.search-result-item:last-child {
-    border-bottom: none;
+.result-header {
+    display: flex;
+    flex-direction: column;  /* Stack header content vertically */
+    gap: 10px;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.result-details {
+    padding-left: 10px;
+    border-left: 1px solid #eee;  /* Optional: adds a separator */
 }
 
 .error-message {
@@ -365,7 +380,7 @@ a:hover {
 .result-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
     margin-bottom: 10px;
     padding-bottom: 5px;
     border-bottom: 1px solid #eee;
@@ -399,4 +414,18 @@ a:hover {
     border: none;
     border-top: 1px solid #ddd;
     margin: 20px 0;
+}
+
+.result-image {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    margin: 10px 0;
+    display: block;
+}
+
+.header-left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 } 
