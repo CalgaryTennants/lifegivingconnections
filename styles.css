@@ -270,6 +270,10 @@ a:hover {
     }
 }
 
+.back-button::before {
+    content: none;
+}
+
 .back-button {
     padding: 8px 16px;
     background-color: #7ab5d4;
@@ -279,6 +283,13 @@ a:hover {
     cursor: pointer;
     font-size: 0.9em;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button .material-icons {
+    font-size: 1.2em;
 }
 
 .back-button:hover {
