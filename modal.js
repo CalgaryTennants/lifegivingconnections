@@ -14,29 +14,40 @@ document.addEventListener('DOMContentLoaded', function() {
         const cancelButton = document.getElementById('cancelFeedback');
         const submitButton = document.getElementById('submitFeedback');
         const feedbackText = document.getElementById('feedbackText');
+        const emailInput = document.getElementById('emailInput');
 
-        // Open modal when feedback button is clicked
+        function validateInputs() {
+            const validation = FeedbackValidator.validateForm(
+                emailInput.value,
+                feedbackText.value
+            );
+            
+            submitButton.disabled = !validation.isValid;
+        }
+
+        // Check validation on any input
+        emailInput.addEventListener('input', validateInputs);
+        feedbackText.addEventListener('input', validateInputs);
+
         feedbackButton.addEventListener('click', function() {
             modal.style.display = 'block';
+            validateInputs();  // Check initial state
         });
 
-        // Close modal when Cancel is clicked
         cancelButton.addEventListener('click', function() {
             modal.style.display = 'none';
-            feedbackText.value = '';  // Clear the textarea
+            emailInput.value = '';
+            feedbackText.value = '';
+            validateInputs();
         });
 
-        // Close modal when clicking outside
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
                 modal.style.display = 'none';
-                feedbackText.value = '';  // Clear the textarea
+                emailInput.value = '';
+                feedbackText.value = '';
+                validateInputs();
             }
-        });
-
-        // Enable/disable OK button based on textarea content
-        feedbackText.addEventListener('input', function() {
-            submitButton.disabled = !this.value.trim();
         });
     }
 }); 

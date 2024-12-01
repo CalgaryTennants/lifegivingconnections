@@ -4,7 +4,14 @@
             <h2>Please let us know what you think</h2>
         </div>
         <div class="modal-body">
-            <textarea id="feedbackText" rows="4" placeholder="Enter your feedback here..."></textarea>
+            <div class="input-group">
+                <label for="emailInput">Email:</label>
+                <input type="email" id="emailInput" placeholder="your@email.com">
+            </div>
+            <div class="input-group">
+                <label for="feedbackText">Feedback:</label>
+                <textarea id="feedbackText" rows="4" placeholder="Enter your feedback here..."></textarea>
+            </div>
         </div>
         <div class="modal-footer">
             <button id="cancelFeedback" class="modal-button">Cancel</button>
