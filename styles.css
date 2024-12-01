@@ -285,6 +285,13 @@ a:hover {
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
 }
 
 .error-message {
@@ -334,18 +341,23 @@ a:hover {
 .star {
     font-size: 1.2em;
     line-height: 1;
+    font-family: Arial, sans-serif;
 }
 
 .star.filled {
-    color: gold;
+    color: #FFD700;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 .star.outline {
-    color: #ccc;
+    color: #C0C0C0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 .title {
     flex: 1;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .result-header {
@@ -368,6 +380,8 @@ a:hover {
 .result-details strong {
     color: #666;
     margin-right: 8px;
+    font-weight: normal;
+    font-style: italic;
 }
 
 .full-width {
@@ -377,4 +391,10 @@ a:hover {
 .full-width .featured-section {
     grid-column: 1 / -1;
     width: 100%;
+}
+
+.result-separator {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
 } 
