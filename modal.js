@@ -1,18 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Load modal HTML
-    fetch('modal.html')
-        .then(response => response.text())
-        .then(html => {
-            document.body.insertAdjacentHTML('beforeend', html);
-            initializeModal();
-        })
-        .catch(error => console.error('Error loading modal:', error));
+    // Load both modals
+    Promise.all([
+        fetch('modal.html').then(response => response.text()),
+        fetch('confirmation-modal.html').then(response => response.text())
+    ]).then(([feedbackHtml, confirmationHtml]) => {
+        document.body.insertAdjacentHTML('beforeend', feedbackHtml);
+        document.body.insertAdjacentHTML('beforeend', confirmationHtml);
+        initializeModals();
+    }).catch(error => console.error('Error loading modals:', error));
 
-    function initializeModal() {
-        const modal = document.getElementById('feedbackModal');
+    function initializeModals() {
+        const feedbackModal = document.getElementById('feedbackModal');
+        const confirmationModal = document.getElementById('confirmationModal');
         const feedbackButton = document.querySelector('.feedback-button');
         const cancelButton = document.getElementById('cancelFeedback');
         const submitButton = document.getElementById('submitFeedback');
+        const closeConfirmButton = document.getElementById('closeConfirmation');
         const feedbackText = document.getElementById('feedbackText');
         const emailInput = document.getElementById('emailInput');
 
@@ -25,28 +28,48 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = !validation.isValid;
         }
 
-        // Check validation on any input
         emailInput.addEventListener('input', validateInputs);
         feedbackText.addEventListener('input', validateInputs);
 
         feedbackButton.addEventListener('click', function() {
-            modal.style.display = 'block';
-            validateInputs();  // Check initial state
+            feedbackModal.style.display = 'block';
+            validateInputs();
         });
 
-        cancelButton.addEventListener('click', function() {
-            modal.style.display = 'none';
+        submitButton.addEventListener('click', function() {
+            // Show confirmation modal with submitted data
+            document.getElementById('submittedEmail').textContent = emailInput.value;
+            document.getElementById('submittedFeedback').textContent = feedbackText.value;
+            
+            feedbackModal.style.display = 'none';
+            confirmationModal.style.display = 'block';
+            
+            // Clear feedback form
             emailInput.value = '';
             feedbackText.value = '';
             validateInputs();
         });
 
+        cancelButton.addEventListener('click', function() {
+            feedbackModal.style.display = 'none';
+            emailInput.value = '';
+            feedbackText.value = '';
+            validateInputs();
+        });
+
+        closeConfirmButton.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+        });
+
+        // Close modals when clicking outside
         window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
+            if (event.target === feedbackModal) {
+                feedbackModal.style.display = 'none';
                 emailInput.value = '';
                 feedbackText.value = '';
                 validateInputs();
+            } else if (event.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
             }
         });
     }

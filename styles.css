@@ -566,4 +566,20 @@ a:hover {
 .input-group textarea.valid {
     border-color: #28a745;
     background-color: white;
+}
+
+.confirmation-details {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.confirmation-details p {
+    margin: 10px 0;
+}
+
+.confirmation-details strong {
+    color: #666;
+    margin-right: 8px;
 } 
