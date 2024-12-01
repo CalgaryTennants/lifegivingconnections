@@ -302,6 +302,7 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 2em;
 }
 
 .result-details {
