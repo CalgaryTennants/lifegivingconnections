@@ -593,4 +593,17 @@ a:hover {
 .confirmation-details strong {
     color: #666;
     margin-right: 8px;
+}
+
+/* Favicon styles */
+link[rel="icon"] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+    link[rel="icon"] {
+        color-scheme: dark;
+    }
 } 
