@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     detailsDiv.innerHTML += `<p><strong>Media:</strong> ${result.media}</p>`;
                 }
                 if (result.location) {
-                    detailsDiv.innerHTML += `<p><strong>Location:</strong> ${result.location}</p>`;
+                    detailsDiv.innerHTML += `<p><strong>Location:</strong> <a href="${result.location}" target="_blank">Visit Resource</a></p>`;
                 }
                 if (result.summary) {
                     detailsDiv.innerHTML += `<p><strong>Summary:</strong> ${result.summary}</p>`;
