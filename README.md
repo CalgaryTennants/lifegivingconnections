@@ -1,11 +1,12 @@
-# Biblical Resources
+# LIfe Giving connections
 This repository hosts various Biblical resources and is published as a website through GitHub Pages.
+Note: name change from "resources" to "life giving connections"
 
 ## About
 This project aims to provide accessible Biblical resources through a static website.
 
 ## Website
-You can access the website at: https://CalgaryTennants.github.io/resources/
+You can access the website at: https://CalgaryTennants.github.io/lifegivingconnections/
 
 ## Available Resources
 - `files/list.csv`: A comprehensive list of resources
